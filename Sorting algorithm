@@ -1,0 +1,65 @@
+public class AlgoSorts {
+    public static void main(String...args){
+        System.out.println("Sorting Algorithm");
+        int money[] = {10,90,50,30,70};
+        int lot[] = {12,22,16,20,14,18};
+        int digits[] = {4,9,5,8,6,7,3};
+
+        AlgoSorts set = new AlgoSorts();
+
+        System.out.println("Elements: ");
+        set.printA(money);
+
+        set.iSort(money);
+        System.out.println("\nAfter selection Sort: ");
+        set.printA(money);
+    }
+    void iSort(int digits[]){
+        int i = digits.length;
+        for (int x=0; x<i; x++){
+            int element = digits[x];
+            int c = x-1;
+
+            while(c>=0 && digits[c]>element){
+                digits[c+1] = digits[c];
+                c = c-1;
+            }
+            digits[c+1] = element;
+        }
+    }
+    void sSort(int lot[]){
+        int s = lot.length;
+
+        for (int x=0; x<s-1; x++){
+            int index = x;
+
+            for (int y=x+1; y<s; y++){
+                if (lot[y] < lot[index]){
+                    index = y;
+                }
+            }
+            int set = lot[index];
+            lot[index] = lot[x];
+            lot[x] = set;
+        }
+    }
+    void bSort(int money[]){
+        int a = money.length;
+
+        for (int x=0;x<a;x++){
+            for (int y=0; y<a-1; y++){
+                if (money[y]>money[y+1]){
+                    int t = money[y];
+                    money[y] = money[y+1];
+                    money[y+1] = t;
+                }
+            }
+        }
+    }
+    void printA(int money[]){
+        int p = money.length;
+        for (int x=0; x<p; x++){
+            System.out.print(money[x]+" ");
+        }
+    }
+}
